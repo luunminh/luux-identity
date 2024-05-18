@@ -1,0 +1,10 @@
+.cmp-logo {
+  &__title {
+    color: #005FA9;
+    transition-duration: 0.3s;
+
+    &:hover {
+      color: #FFD985 !important;
+    }
+  }
+}
