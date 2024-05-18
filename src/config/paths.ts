@@ -2,12 +2,10 @@ import { uamPaths } from '@modules/uam/route';
 
 export const PATHS = {
   root: '',
-  templates: '/templates',
-  settings: '/settings',
-  design: '/design',
-
   dev: '/dev',
 };
+
+export const PREFIX_ROUTE = '/identity';
 
 // project paths
 

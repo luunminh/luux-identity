@@ -1,7 +1,7 @@
 import { SplashScreen } from '@components';
-import { PATHS } from '@config/paths';
 import { ToastService } from '@core/common';
 import { useAuthStore } from '@core/store';
+import { uamPaths } from '@modules/uam/route';
 import { FC, PropsWithChildren } from 'react';
 import { Navigate } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ const CustomRoute: FC<PropsWithChildren<CustomRouteProps>> = ({
     return <>{children}</>;
   }
 
-  const redirectPath = PATHS.root;
+  const redirectPath = uamPaths.login;
 
   ToastService.error('You are not authorized to access this page');
 

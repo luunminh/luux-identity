@@ -8,6 +8,7 @@ import {
   scrollToTopError,
 } from '@core/common';
 import { Form } from '@core/components';
+import { useAuthStore } from '@core/store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid, Stack, Text, Title } from '@mantine/core';
 import { useLogin } from '@modules/uam/queries';
@@ -23,6 +24,7 @@ import {
 } from './SignIn.helpers';
 
 const SignIn = () => {
+  const { onSetIsAuthenticated } = useAuthStore();
   const { control, handleSubmit } = useForm<SignInFormValue>({
     defaultValues: initialSignInFormValue,
     mode: 'onChange',
@@ -37,6 +39,8 @@ const SignIn = () => {
 
       TokenService.setACToken(response.accessToken);
       TokenService.setRFToken(response.refreshToken);
+
+      onSetIsAuthenticated(true);
 
       ToastService.success('Login success');
     },
