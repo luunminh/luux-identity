@@ -1,4 +1,3 @@
-import { FormCore } from '@components';
 import {
   COLOR_CODE,
   ErrorService,
@@ -7,7 +6,7 @@ import {
   isEmpty,
   scrollToTopError,
 } from '@core/common';
-import { Form } from '@core/components';
+import { FormCore } from '@core/components';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid, Stack, Text, Title } from '@mantine/core';
 import { modals } from '@mantine/modals';
@@ -77,7 +76,7 @@ const SignUp = () => {
           Create Account
         </Title>
       </Stack>
-      <Form customSubmit={handleSubmit(onValidFormSubmit, onInvalidFormSubmit)}>
+      <FormCore.Wrapper customSubmit={handleSubmit(onValidFormSubmit, onInvalidFormSubmit)}>
         <Grid grow gutter="md">
           <Grid.Col span={6}>
             <FormCore.Input
@@ -144,7 +143,7 @@ const SignUp = () => {
             </Text>
           </Grid.Col>
         </Grid>
-      </Form>
+      </FormCore.Wrapper>
     </UAMBody>
   );
 };

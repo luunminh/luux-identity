@@ -1,4 +1,3 @@
-import { FormCore } from '@components';
 import {
   COLOR_CODE,
   ErrorService,
@@ -7,7 +6,7 @@ import {
   deepKeysHookFormErrors,
   scrollToTopError,
 } from '@core/common';
-import { Form } from '@core/components';
+import { FormCore } from '@core/components';
 import { useAuthStore } from '@core/store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid, Stack, Text, Title } from '@mantine/core';
@@ -66,7 +65,7 @@ const SignIn = () => {
           Welcome
         </Title>
       </Stack>
-      <Form customSubmit={handleSubmit(onValidFormSubmit, onInvalidFormSubmit)}>
+      <FormCore.Wrapper customSubmit={handleSubmit(onValidFormSubmit, onInvalidFormSubmit)}>
         <Grid grow gutter="md">
           <Grid.Col span={12}>
             <FormCore.Input
@@ -117,7 +116,7 @@ const SignIn = () => {
             </Text>
           </Grid.Col>
         </Grid>
-      </Form>
+      </FormCore.Wrapper>
     </UAMBody>
   );
 };

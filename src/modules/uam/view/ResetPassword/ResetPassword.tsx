@@ -1,6 +1,5 @@
-import { FormCore } from '@components';
 import { COLOR_CODE, ErrorService, ToastService, isEmpty } from '@core/common';
-import { Form } from '@core/components';
+import { FormCore } from '@core/components';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid, Stack, Text, Title } from '@mantine/core';
 import { useResetPassword } from '@modules/uam/queries';
@@ -86,7 +85,7 @@ const ResetPassword = () => {
           name={ResetPasswordFormKey.EMAIL}
         />
       </Stack>
-      <Form customSubmit={handleSubmit(onValidSubmit)}>
+      <FormCore.Wrapper customSubmit={handleSubmit(onValidSubmit)}>
         <Grid grow gutter="md">
           <Grid.Col span={12} display="flex" style={{ justifyContent: 'center' }}>
             <FormCore.InputOtp name={ResetPasswordFormKey.TOKEN} control={control} />
@@ -115,7 +114,7 @@ const ResetPassword = () => {
             </Button>
           </Grid.Col>
         </Grid>
-      </Form>
+      </FormCore.Wrapper>
     </UAMBody>
   );
 };

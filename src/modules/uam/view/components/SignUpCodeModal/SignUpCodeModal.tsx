@@ -1,4 +1,3 @@
-import { FormCore } from '@components';
 import {
   COLOR_CODE,
   ErrorService,
@@ -6,6 +5,7 @@ import {
   deepKeysHookFormErrors,
   scrollToTopError,
 } from '@core/common';
+import { FormCore } from '@core/components';
 import { Button, Flex, Stack, Text, UnstyledButton } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { useConfirmSignUpCode, useGetSignUpCode } from '@modules/uam/queries';
