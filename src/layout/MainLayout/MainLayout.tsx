@@ -1,28 +1,15 @@
-import { CustomErrorBoundary, Navbar } from '@components';
+import { CustomErrorBoundary } from '@components';
 import { AuthContainer } from '@components/startup';
-import appConfigs from '@config';
 import { LoadingGlobalContainer } from '@containers';
 import { AppShell } from '@mantine/core';
 import { PropsWithChildren } from 'react';
-import useLayoutProps from './useLayoutProps';
 
 type MainLayoutProps = PropsWithChildren;
 
 const MainLayout = ({ children }: MainLayoutProps) => {
-  const { isHideNav, isHideSidebar } = useLayoutProps();
-
   return (
     <CustomErrorBoundary showErrorMessage>
-      <AppShell
-        // padding="sm"
-        header={{
-          collapsed: isHideNav,
-          height: appConfigs.NAVBAR_HEIGHT,
-        }}
-      >
-        <AppShell.Header>
-          <Navbar />
-        </AppShell.Header>
+      <AppShell>
         <AppShell.Navbar />
 
         <AppShell.Main>

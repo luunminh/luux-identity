@@ -1,4 +1,4 @@
-import { Navigator } from '@core/common';
+import { PREFIX_ROUTE } from '@config/paths';
 import { lazy } from 'react';
 import { Route } from 'react-router-dom';
 
@@ -7,13 +7,11 @@ const SignUp = lazy(() => import('./view/SignUp'));
 const ForgotPassword = lazy(() => import('./view/ForgotPassword'));
 const ResetPassword = lazy(() => import('./view/ResetPassword'));
 
-const PREFIX_ROUTE = Navigator.getCurrentPortalUrl();
-
 export const uamPaths = {
-  login: `/${PREFIX_ROUTE}/login`,
-  signup: `/${PREFIX_ROUTE}/signup`,
-  forgotPassword: `/${PREFIX_ROUTE}/forgot-password`,
-  resetPassword: `/${PREFIX_ROUTE}/reset-password`,
+  login: `${PREFIX_ROUTE}/login`,
+  signup: `${PREFIX_ROUTE}/signup`,
+  forgotPassword: `${PREFIX_ROUTE}/forgot-password`,
+  resetPassword: `${PREFIX_ROUTE}/reset-password`,
 };
 
 export const uamRoutes = [
