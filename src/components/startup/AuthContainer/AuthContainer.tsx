@@ -62,6 +62,11 @@ const AuthContainer: FC<Props> = () => {
         accessToken: TokenService.getACToken(),
         refreshToken: TokenService.getRFToken(),
       };
+
+      setTimeout(() => {
+        TokenService.clearTokens();
+        onSetIsAuthenticated(null);
+      });
     }
 
     switch (userType) {
