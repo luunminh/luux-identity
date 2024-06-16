@@ -48,7 +48,7 @@ const AuthContainer: FC<Props> = () => {
   });
 
   useEffect(() => {
-    if (isAuthenticated === null || isAuthenticated) {
+    if (isAuthenticated) {
       handleGetProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,18 +64,20 @@ const AuthContainer: FC<Props> = () => {
       };
 
       setTimeout(() => {
-        TokenService.clearTokens();
         onSetIsAuthenticated(null);
+        TokenService.clearTokens();
       });
     }
 
     switch (userType) {
       case UserType.ADMIN:
-        return Navigator.jumpToWebAdmin(params);
+        Navigator.jumpToWebAdmin(params);
+        break;
       case UserType.USER:
-        return Navigator.jumpToWebApp(params);
+        Navigator.jumpToWebApp(params);
+        break;
       default:
-        return Navigator.jumpToWebIdentity();
+        Navigator.jumpToWebIdentity();
     }
   };
 
