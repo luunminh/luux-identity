@@ -9,20 +9,25 @@ import {
   ISignUpPayload,
 } from '.';
 
-const signIn = (body: ISignInPayload) => httpService.post('/login', body, newCancelToken());
+const signIn = (body: ISignInPayload) =>
+  httpService.post(
+    '/uam/login',
+    { username: body.email, password: body.password },
+    newCancelToken(),
+  );
 
-const signUp = (body: ISignUpPayload) => httpService.post('/signup', body, newCancelToken());
+const signUp = (body: ISignUpPayload) => httpService.post('/uam/signup', body, newCancelToken());
 
 const getSignUpCode = (payload: ISignUpCodePayload) =>
-  httpService.post('/signup-code', payload, newCancelToken());
+  httpService.post('/uam/signup-code', payload, newCancelToken());
 
 const confirmSignUpCode = (payload: IConfirmSignUpCodePayload) =>
-  httpService.post('/confirm-signup', payload, newCancelToken());
+  httpService.post('/uam/confirm-signup', payload, newCancelToken());
 
 const forgotPassword = (payload: IForgotPasswordPayload) =>
-  httpService.post('/forgot-password', payload, newCancelToken());
+  httpService.post('/uam/forgot-password', payload, newCancelToken());
 
 const resetPassword = (payload: IResetPasswordPayload) =>
-  httpService.post('/reset-password', payload, newCancelToken());
+  httpService.post('/uam/reset-password', payload, newCancelToken());
 
 export { confirmSignUpCode, forgotPassword, getSignUpCode, resetPassword, signIn, signUp };
