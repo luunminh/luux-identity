@@ -18,6 +18,9 @@ env:
     AWS_S3_WEB_URL: luux-fe:AWS_S3_WEB_APP_PORTAL_URL
     AWS_WEB_CLOUDFRONT_DISTRIBUTION_ID: luux-fe:AWS_APP_PORTAL_CLOUDFRONT_DISTRIBUTION_ID
 
+    # Github
+    GITHUB_PAT: luux-fe:GITHUB_PAT
+
 phases:
   install:
     commands:
@@ -39,6 +42,7 @@ phases:
     commands:
       - npm install -g pnpm@9.10.0
       - pnpm install
+      - git config --global url."https://${GITHUB_PAT}@github.com/".insteadOf "https://github.com/"
   build:
     commands:
       # - pnpm audit
